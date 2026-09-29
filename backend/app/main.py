@@ -24,6 +24,7 @@ from .routes.phase34_router import register_phase34_routes
 
 # Import models so SQLAlchemy registers them before create_all
 from .models import db_models  # noqa: F401
+from fastapi.middleware.cors import CORSMiddleware
 
 
 @asynccontextmanager
@@ -45,12 +46,15 @@ app = FastAPI(
 # CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=[
+        "https://precedent-pranav-173.vercel.app",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # Phase 0 API V1 Router
 app.include_router(api_router, prefix=settings.API_V1_STR)
