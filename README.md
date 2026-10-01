@@ -505,14 +505,4 @@ That distinction is the foundation of Precedent.
 
 ---
 
-# HackWithHyderabad 3.0
-
-Precedent was developed as a submission for **HackWithHyderabad 3.0**, with a focus on applying persistent AI memory and agentic reasoning to sales workflows.
-
-The project combines:
-
-**Deal Management + Persistent Memory + AI Agents + Sales Intelligence**
-
-to create a sales assistant that becomes more context-aware as a deal progresses.
-
----
+#
