@@ -38,46 +38,14 @@ This context can then be used to provide **more informed and explainable next-ac
 
 Precedent follows a continuous intelligence loop:
 
-```text
-                    ┌──────────────┐
-                    │    DEAL      │
-                    │   ACTIVITY   │
-                    └──────┬───────┘
-                           │
-                           ▼
-                    ┌──────────────┐
-                    │    RETAIN    │
-                    │ Store Context│
-                    └──────┬───────┘
-                           │
-                           ▼
-                    ┌──────────────┐
-                    │    RECALL    │
-                    │ Relevant     │
-                    │ Deal Memory  │
-                    └──────┬───────┘
-                           │
-                           ▼
-                    ┌──────────────┐
-                    │    REASON    │
-                    │ Understand   │
-                    │ Deal State   │
-                    └──────┬───────┘
-                           │
-                           ▼
-                    ┌──────────────┐
-                    │ RECOMMEND    │
-                    │ Next Action  │
-                    └──────┬───────┘
-                           │
-                           ▼
-                    ┌──────────────┐
-                    │    LEARN     │
-                    │ New Deal     │
-                    │ Context     │
-                    └──────┬───────┘
-                           │
-                           └──────────────↺
+```mermaid
+flowchart TD
+    A["DEAL<br/>ACTIVITY"] --> B["RETAIN<br/>Store Context"]
+    B --> C["RECALL<br/>Relevant<br/>Deal Memory"]
+    C --> D["REASON<br/>Understand<br/>Deal State"]
+    D --> E["RECOMMEND<br/>Next Action"]
+    E --> F["LEARN<br/>New Deal<br/>Context"]
+    F --> A
 ```
 
 The goal is to turn historical deal information into **actionable sales intelligence** rather than simply generating another chatbot response.
