@@ -150,32 +150,19 @@ This makes the recommendation more useful and easier for a salesperson to trust.
 
 # Architecture
 
-```text
-┌──────────────────────────────────────────────┐
-│                  Frontend                    │
-│            React + Vite + Tailwind           │
-└──────────────────────┬───────────────────────┘
-                       │
-                       ▼
-┌──────────────────────────────────────────────┐
-│                 FastAPI API                  │
-│          Deal & Interaction Management       │
-└──────────────────────┬───────────────────────┘
-                       │
-             ┌─────────┴─────────┐
-             ▼                   ▼
-┌─────────────────────┐ ┌─────────────────────┐
-│    Deal Database    │ │    AI Agent Layer   │
-│                     │ │                     │
-│ SQLAlchemy + SQLite │ │     Google ADK      │
-└─────────────────────┘ └──────────┬──────────┘
-                                    │
-                                    ▼
-                          ┌─────────────────────┐
-                          │   Memory Layer      │
-                          │                     │
-                          │      Hindsight      │
-                          └─────────────────────┘
+```mermaid
+flowchart TD
+    A["Frontend<br/>React + Vite + Tailwind"]
+    B["FastAPI API<br/>Deal & Interaction Management"]
+
+    C["Deal Database<br/>SQLAlchemy + SQLite"]
+    D["AI Agent Layer<br/>Google ADK"]
+    E["Memory Layer<br/>Hindsight"]
+
+    A --> B
+    B --> C
+    B --> D
+    D --> E
 ```
 
 ### Technology Stack
