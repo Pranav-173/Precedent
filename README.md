@@ -40,11 +40,18 @@ Precedent follows a continuous intelligence loop:
 
 ```mermaid
 flowchart TD
-    A["DEAL<br/>ACTIVITY"] --> B["RETAIN<br/>Store Context"]
-    B --> C["RECALL<br/>Relevant<br/>Deal Memory"]
-    C --> D["REASON<br/>Understand<br/>Deal State"]
-    D --> E["RECOMMEND<br/>Next Action"]
-    E --> F["LEARN<br/>New Deal<br/>Context"]
+    A["DEAL<br/>ACTIVITY"]
+    B["RETAIN<br/>Store Context"]
+    C["RECALL<br/>Relevant<br/>Deal Memory"]
+    D["REASON<br/>Understand<br/>Deal State"]
+    E["RECOMMEND<br/>Next Action"]
+    F["LEARN<br/>New Deal<br/>Context"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
     F --> A
 ```
 
