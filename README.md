@@ -466,5 +466,3 @@ Precedent aims to answer:
 That distinction is the foundation of Precedent.
 
 ---
-
-#
