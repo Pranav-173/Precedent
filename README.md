@@ -38,46 +38,21 @@ This context can then be used to provide **more informed and explainable next-ac
 
 Precedent follows a continuous intelligence loop:
 
-```text
-                    ┌──────────────┐
-                    │    DEAL      │
-                    │   ACTIVITY   │
-                    └──────┬───────┘
-                           │
-                           ▼
-                    ┌──────────────┐
-                    │    RETAIN    │
-                    │ Store Context│
-                    └──────┬───────┘
-                           │
-                           ▼
-                    ┌──────────────┐
-                    │    RECALL    │
-                    │ Relevant     │
-                    │ Deal Memory  │
-                    └──────┬───────┘
-                           │
-                           ▼
-                    ┌──────────────┐
-                    │    REASON    │
-                    │ Understand   │
-                    │ Deal State   │
-                    └──────┬───────┘
-                           │
-                           ▼
-                    ┌──────────────┐
-                    │ RECOMMEND    │
-                    │ Next Action  │
-                    └──────┬───────┘
-                           │
-                           ▼
-                    ┌──────────────┐
-                    │    LEARN     │
-                    │ New Deal     │
-                    │ Context     │
-                    └──────┬───────┘
-                           │
-                           └──────────────↺
+```mermaid
+flowchart TD
+    A["DEAL<br/>ACTIVITY"]
+    B["RETAIN<br/>Store Context"]
+    C["RECALL<br/>Relevant<br/>Deal Memory"]
+    D["REASON<br/>Understand<br/>Deal State"]
+    E["RECOMMEND<br/>Next Action"]
+    F["LEARN<br/>New Deal<br/>Context"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> A
 ```
 
 The goal is to turn historical deal information into **actionable sales intelligence** rather than simply generating another chatbot response.
@@ -175,32 +150,19 @@ This makes the recommendation more useful and easier for a salesperson to trust.
 
 # Architecture
 
-```text
-┌──────────────────────────────────────────────┐
-│                  Frontend                    │
-│            React + Vite + Tailwind           │
-└──────────────────────┬───────────────────────┘
-                       │
-                       ▼
-┌──────────────────────────────────────────────┐
-│                 FastAPI API                  │
-│          Deal & Interaction Management       │
-└──────────────────────┬───────────────────────┘
-                       │
-             ┌─────────┴─────────┐
-             ▼                   ▼
-┌─────────────────────┐ ┌─────────────────────┐
-│    Deal Database    │ │    AI Agent Layer   │
-│                     │ │                     │
-│ SQLAlchemy + SQLite │ │     Google ADK      │
-└─────────────────────┘ └──────────┬──────────┘
-                                    │
-                                    ▼
-                          ┌─────────────────────┐
-                          │   Memory Layer      │
-                          │                     │
-                          │      Hindsight      │
-                          └─────────────────────┘
+```mermaid
+flowchart TD
+    A["Frontend<br/>React + Vite + Tailwind"]
+    B["FastAPI API<br/>Deal & Interaction Management"]
+
+    C["Deal Database<br/>SQLAlchemy + SQLite"]
+    D["AI Agent Layer<br/>Google ADK"]
+    E["Memory Layer<br/>Hindsight"]
+
+    A --> B
+    B --> C
+    B --> D
+    D --> E
 ```
 
 ### Technology Stack
@@ -504,5 +466,3 @@ Precedent aims to answer:
 That distinction is the foundation of Precedent.
 
 ---
-
-#
